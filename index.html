@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hylian font</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hylian: {
+                            gold: '#be904c',
+                            dark: '#2d2b29',
+                            blue: '#4c7eb5',
+                            light: '#f5e6d3',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face {
+            font-family: 'Hylian';
+            src: url('./HyliancharacterBOTW-1.0.ttf') format('truetype');
+            font-display: swap;
+        }
+
+        .hylian-text {
+            font-family: 'Hylian', sans-serif;
+            font-size: 24px;
+            color: #be904c;
+        }
+
+        .hylian-text-title {
+            font-family: 'Hylian';
+            font-size: 50px;
+            color: #be904c;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #f5e6d3, #fff);
+            min-height: 100vh;
+        }
+
+        .input-range::-webkit-slider-thumb {
+            background: #be904c;
+        }
+
+        .textarea-bordered:focus {
+            border-color: #be904c;
+            box-shadow: 0 0 0 1px #be904c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto px-4 py-8 max-w-2xl">
+        <!-- 标题区 -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2 text-hylian-dark flex items-center justify-center gap-2">
+                <span class="hylian-text-title">hylian</span>
+            </h1>
+            <p class="text-lg text-hylian-gold">海利亚文字体演示与下载</p>
+        </div>
+
+        <!-- 主要控制区 -->
+        <div class="card bg-white/80 backdrop-blur-sm shadow-xl border border-hylian-gold/20">
+            <div class="card-body">
+                <div class="flex gap-4 mb-6 items-center">
+                    <div class="form-control flex-1">
+                        <label class="label">
+                            <span class="label-text text-hylian-dark font-medium">字体大小</span>
+                            <span class="label-text-alt text-hylian-gold font-medium" id="fontSizeValue">24px</span>
+                        </label>
+                        <input type="range" id="fontSize" min="12" max="72" value="24" class="range range-warning"
+                            step="1" />
+                    </div>
+                    <div class="form-control w-24">
+                        <label class="label">
+                            <span class="label-text text-hylian-dark font-medium">颜色</span>
+                        </label>
+                        <input type="color" id="fontColor" value="#be904c"
+                            class="h-12 w-full cursor-pointer rounded-lg border-2 border-hylian-gold/20" />
+                    </div>
+                </div>
+
+                <!-- 演示区域 -->
+                <div class="flex flex-col gap-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text text-hylian-dark font-medium">小写海利亚文 (a-z)</span>
+                        </label>
+                        <textarea class="hylian-text textarea textarea-bordered h-24 bg-white/50 backdrop-blur-sm"
+                            id="lowercaseArea" placeholder="输入英文字母，将自动转换为小写"></textarea>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text text-hylian-dark font-medium">大写海利亚文 (A-Z，带对照)</span>
+                        </label>
+                        <textarea class="hylian-text textarea textarea-bordered h-24 bg-white/50 backdrop-blur-sm"
+                            id="uppercaseArea" placeholder="输入英文字母，将自动转换为大写"></textarea>
+                    </div>
+                </div>
+
+                <!-- 下载区域 -->
+                <div class="divider my-6 text-hylian-gold">字体下载</div>
+                <div class="flex flex-col items-center gap-4">
+                    <p class="text-sm text-hylian-dark/75 flex items-center gap-2">
+                        <span
+                            class="font-mono bg-hylian-light/30 px-2 py-0.5 rounded">HyliancharacterBOTW-1.0.ttf</span>
+                        <span class="text-hylian-dark/50">·</span>
+                        <span>20 KB</span>
+                    </p>
+                    <button class="btn bg-hylian-gold hover:bg-hylian-gold/90 text-white border-none"
+                        onclick="window.location.href='./HyliancharacterBOTW-1.0.ttf'">
+                        下载字体文件
+                    </button>
+                    <details class="collapse bg-hylian-light/30 w-full">
+                        <summary class="collapse-title text-center text-hylian-dark font-medium">
+                            查看 Web 引用代码
+                        </summary>
+                        <div class="collapse-content">
+                            <pre class="bg-white/70 p-4 rounded-lg overflow-x-auto text-hylian-dark"><code id="webImportCode">@font-face {
+    font-family: 'Hylian';
+    src: url('https://your-site.pages.dev/HyliancharacterBOTW-1.0.ttf') format('truetype');
+    font-display: swap;
+}</code></pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer
+            class="footer footer-center p-4 bg-white/50 backdrop-blur-sm text-hylian-dark rounded-lg mt-8 border border-hylian-gold/20">
+            <div class="flex flex-col items-center gap-2">
+                <p>字体由 <a href="https://weibo.com/2477837951/PbIT74xod"
+                        class="link text-hylian-gold hover:text-hylian-gold/80" target="_blank">@SH塞尔达only游园会</a> 提供</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 字体大小控制
+        const fontSize = document.getElementById('fontSize');
+        const fontSizeValue = document.getElementById('fontSizeValue');
+        const fontColor = document.getElementById('fontColor');
+        const lowercaseArea = document.getElementById('lowercaseArea');
+        const uppercaseArea = document.getElementById('uppercaseArea');
+
+        fontSize.addEventListener('input', (e) => {
+            const size = `${e.target.value}px`;
+            fontSizeValue.textContent = size;
+            lowercaseArea.style.fontSize = size;
+            uppercaseArea.style.fontSize = size;
+        });
+
+        fontColor.addEventListener('input', (e) => {
+            lowercaseArea.style.color = e.target.value;
+            uppercaseArea.style.color = e.target.value;
+        });
+
+        // 输入过滤
+        lowercaseArea.addEventListener('input', (e) => {
+            const value = e.target.value;
+            e.target.value = value.replace(/[^a-zA-Z\s\n]/g, '').toLowerCase();
+        });
+
+        uppercaseArea.addEventListener('input', (e) => {
+            const value = e.target.value;
+            e.target.value = value.replace(/[^a-zA-Z\s\n]/g, '').toUpperCase();
+        });
+
+        // 初始化时设置默认颜色和同步字体大小
+        window.addEventListener('load', () => {
+            const size = `${fontSize.value}px`;
+            lowercaseArea.style.fontSize = size;
+            uppercaseArea.style.fontSize = size;
+
+            // 设置默认颜色
+            const defaultColor = '#be904c';
+            fontColor.value = defaultColor;
+            lowercaseArea.style.color = defaultColor;
+            uppercaseArea.style.color = defaultColor;
+
+            // 获取当前URL并更新代码示例
+            const currentUrl = new URL(window.location.href);
+            const fontUrl = `${currentUrl.protocol}//${currentUrl.host}/HyliancharacterBOTW-1.0.ttf`;
+            const webImportCode = document.getElementById('webImportCode');
+            webImportCode.textContent = `@font-face {
+        font-family: 'Hylian';
+        src: url('${fontUrl}') format('truetype');
+        font-display: swap;
+    }`;
+        });
+    </script>
+</body>
+
+</html>
